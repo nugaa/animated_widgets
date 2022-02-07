@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
 import 'package:isolate_tests/animate_test.dart';
 import 'package:isolate_tests/box_animated.dart';
+import 'package:isolate_tests/menu_toggle_animation.dart';
 import 'package:isolate_tests/next_widget.dart';
 
 class StaggerAnimation extends StatelessWidget {
@@ -244,7 +245,8 @@ class _StaggerDemoState extends State<StaggerDemo>
                     context,
                     MaterialPageRoute(
                         builder: (context) => const BoxAnimated())),
-                child: const Text('BoxAnimation'))
+                child: const Text('BoxAnimation')),
+            const Align(alignment: Alignment.centerRight, child: MenuButton()),
           ],
         ),
       ),
