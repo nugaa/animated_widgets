@@ -19,7 +19,13 @@ class AnimatedMenuButton extends StatelessWidget {
   final Animation<double> width;
   final Animation<double> icon;
   final Animation<double> opacity;
-
+  final List<IconData> iconList = [
+    Icons.camera_alt_outlined,
+    Icons.bungalow_outlined,
+    Icons.volume_up_sharp,
+    Icons.home_outlined,
+    Icons.favorite_outline,
+  ];
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -63,6 +69,10 @@ class AnimatedMenuButton extends StatelessWidget {
                                 decoration: BoxDecoration(
                                   color: Colors.white70,
                                   borderRadius: BorderRadius.circular(30),
+                                ),
+                                child: Icon(
+                                  iconList[index],
+                                  color: Colors.black45,
                                 ),
                               ),
                             ),
@@ -114,19 +124,21 @@ class _MenuButtonState extends State<MenuButton>
     timeDilation = 1.0;
     return Padding(
       padding: const EdgeInsets.only(right: 12.0),
-      child: AnimatedBuilder(
-          animation: animationController,
-          builder: (context, child) => InkWell(
-                onTap: () {
-                  setState(() {
-                    _isExpanded = !_isExpanded;
-                  });
-                  _playAnimation();
-                },
-                child: AnimatedMenuButton(
-                  animation: animationController.view,
-                ),
-              )),
+      child: FittedBox(
+        child: AnimatedBuilder(
+            animation: animationController,
+            builder: (context, child) => InkWell(
+                  onTap: () {
+                    setState(() {
+                      _isExpanded = !_isExpanded;
+                    });
+                    _playAnimation();
+                  },
+                  child: AnimatedMenuButton(
+                    animation: animationController.view,
+                  ),
+                )),
+      ),
     );
   }
 }

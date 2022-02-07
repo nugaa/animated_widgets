@@ -6,6 +6,7 @@ import 'package:isolate_tests/animate_test.dart';
 import 'package:isolate_tests/box_animated.dart';
 import 'package:isolate_tests/menu_toggle_animation.dart';
 import 'package:isolate_tests/next_widget.dart';
+import 'package:isolate_tests/radio_button_animated.dart';
 
 class StaggerAnimation extends StatelessWidget {
   StaggerAnimation({Key? key, required this.controller})
@@ -206,7 +207,7 @@ class _StaggerDemoState extends State<StaggerDemo>
         title: const Text('Staggered Animation'),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 18.0),
+        padding: const EdgeInsets.symmetric(vertical: 18.0, horizontal: 12.0),
         child: Column(
           children: [
             GestureDetector(
@@ -247,6 +248,10 @@ class _StaggerDemoState extends State<StaggerDemo>
                         builder: (context) => const BoxAnimated())),
                 child: const Text('BoxAnimation')),
             const Align(alignment: Alignment.centerRight, child: MenuButton()),
+            const SizedBox(
+              height: 12.0,
+            ),
+            const Align(alignment: Alignment.centerRight, child: RadioButton()),
           ],
         ),
       ),
